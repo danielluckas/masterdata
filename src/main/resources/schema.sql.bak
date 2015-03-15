@@ -1,0 +1,8 @@
+drop table person if exists;
+
+create table person (
+    id bigint auto_increment,
+    firstname varchar(80) null,
+    lastname varchar(80) null,
+    username varchar(80) not null
+);

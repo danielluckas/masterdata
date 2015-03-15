@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<style type="text/css">
+div.personAttribute {
+	float: left;
+}
+
+div.person {
+	float: left;
+	clear: both;
+}
+</style>
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header" tag="false"></div>
+
+	<h1>Personlist</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Vorname</th>
+				<th>Nachname</th>
+				<th>Benutzername</th>
+			</tr>
+		</thead>
+		<tbody>
+	<tr class="person" th:each="person : ${allpersons}">
+		<td th:text="${person.firstname}"></td>
+		<td th:text="${person.lastname}"></td>
+		<td> <a th:href="@{'/person/' + ${person.id}}" th:text="${person.username}"></a></td>
+	</tr>
+	</tbody>
+	</table>
+</body>
+</html>
